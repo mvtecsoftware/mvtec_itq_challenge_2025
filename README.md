@@ -207,9 +207,9 @@ The Jetson Orin Nano can be accessed via network either via an ethernet cable or
 
   Use the windows tool 'Remote Desktop Connection'
 
-  <a href="https://github.com/christian-hartinger/itq_2025_mvtec_challenge">
-    <img src="images/rdp.png" alt="Logo" width="400" height="260">
-  </a>
+    <a href="https://github.com/christian-hartinger/itq_2025_mvtec_challenge">
+      <img src="images/rdp.png" alt="Logo" width="400" height="260">
+    </a>
 
   You have to enter username and password multiple times.
   It is a good idea to choose a smaller resolution for the rdp connection to get a better update rate of the gui.
@@ -218,11 +218,24 @@ The Jetson Orin Nano can be accessed via network either via an ethernet cable or
     <img src="images/rdp2.png" alt="Logo" width="400" height="500">
   </a>
 
-  
+
 
 * __How to use the HDevelop remote debugging functionality:__ 
 
-  bla
+  It is possible to run the HALCON scripts in interactive mode on the robot as well but this approach has a number of limitations.
+
+  Start hrun with the ```--debug``` option, indicate a port to open and the procedure to debug. Example:
+   ```sh
+  hrun RobotDemo.hdev --debug 8081 -t robot_main
+   ```
+  
+  hrun will wait for HDevelop to connect to it before it executes the script.
+  Click 'Execute' -> 'Attach to Process' in HDevelops menu and provide IP address and port there.
+
+    <a href="https://github.com/christian-hartinger/itq_2025_mvtec_challenge">
+    <img src="images/remote_debugging.png" alt="Logo" width="480" height="400">
+  </a>
+
 
 
 <!-- LICENSE -->
