@@ -32,6 +32,11 @@
   <ol>
     <li><a href="#about">About The Project</a></li>
     <li><a href="#hardware-software">Hardware and Software Concept</a></li>
+      <ul>
+        <li><a href="#electrical">Electrical Diagram</a></li>
+        <li><a href="#architecture">Software Architecture</a></li>
+        <li><a href="#accessing">Accessing The Robots Operating System</a></li>
+      </ul>
     <li><a href="#files">Files In This Repository</a></li>
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#tipps">Tipps And Tricks</a></li>
@@ -61,12 +66,14 @@ As a starting point for this challenge, we have prepared a simple mobile robotic
 
 It consists of a robot chassis with two chain drives, powered by 12V motors. The motor controller is managed by an Arduino. The Arduino allows for the connection of additional hardware. The Arduino itself is controlled via a serial port connection by the machine vision software running on an Nvidia Jetson Orin Nano. The machine vision software connects to the camera, analyzes the image content, and decides what to do next. It then sends simple commands to the Arduino to move the platform.
 
-### Electrical Diagram
+### <a name="electrical"></a> Electrical Diagram
   <a href="https://github.com/christian-hartinger/itq_2025_mvtec_challenge">
     <img src="images/electrical.png" alt="Logo" width="800" height="450">
   </a>
 
-### Software Architecture
+  <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### <a name="architecture"></a> Software Architecture
 The image processing should run on the Nvidia Jetson Orin Nano which is mounted on the robotics platform.
 It runs an Ubuntu Linux operating system.
 
@@ -91,7 +98,37 @@ The script can then send commands to the arduino in a very basic format which lo
 As an example if the program sends ```:ML=120!``` it means set the power value of the left motor to 120.
 What 120 exactly means is implemented in the Arduino program.
 
-### Accessing The Robots Operating System
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### <a name="accessing"></a> Accessing The Robots Operating System
+
+The Jetson Orin Nano can be accessed via network either via an ethernet cable or wifi.
+
+* Ethernet:
+
+  Direct connect an ethernet cable and connect to the IP ```169.254.149.20```. Assign yourselfe a matching IP address or use 'Obtain an IP Address automatically'.
+  Test if the login works with 
+  ```sh
+  ssh makeathon@169.254.149.20
+  ```
+
+* Wifi:
+
+  Connect to the Wifi of the provided FritzBox. The Wifi access code can be found on the backside of the FritzBox.
+  The robot should connect itself to the same Wifi automatically. It is reachable via the IP ```192.168.178.22```.
+  Test if the login works with 
+  ```sh
+  ssh makeathon@192.168.178.22
+  ```
+
+* User:
+
+  ```makeathon```
+
+* Password:
+
+  ```makeathon```
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -126,11 +163,11 @@ What 120 exactly means is implemented in the Arduino program.
    ```
 3. Connect to the Robot via ssh
    ```sh
-   ssh bla todo
+   ssh makeathon@192.168.178.22
    ```
 4. Run the RobotDemo program. Hopefully the robot should respond by spinning its motors!  
    ```sh
-   ssh bla todo
+   hrun RobotDemo.hdev
    ```
 5. Develop and improve the robots software with HDevelop and the low-level hardware control layer with the Arduino IDE.
 
