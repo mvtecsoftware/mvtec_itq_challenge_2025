@@ -118,7 +118,7 @@ What 120 exactly means is implemented in the Arduino program.
 
 1. Clone the repo
    ```sh
-   TODO git clone https://github.com/github_username/TODO-change-me.git
+   git clone https://github.com/mvtecsoftware/mvtec_itq_challenge_2025.git
    ```
 2. Copy the HALCON scripts to the Robot
    ```js
@@ -159,7 +159,7 @@ Phillip Junge - phillip.junge@mvtec.com
 
 Christian Hartinger - christian.hartinger@mvtec.com
 
-Project Link: [https://github.com/github_username/TODO-change-me](https://github.com/github_username/TODO-change-me)
+Project Link: [https://github.com/mvtecsoftware/mvtec_itq_challenge_2025](https://github.com/mvtecsoftware/mvtec_itq_challenge_2025)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
