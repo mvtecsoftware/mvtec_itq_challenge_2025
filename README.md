@@ -39,7 +39,7 @@
       </ul>
     <li><a href="#files">Files In This Repository</a></li>
     <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#tipps">Tipps And Tricks</a></li>
+    <li><a href="#tipps">Tips And Tricks</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>    
   </ol>
@@ -181,7 +181,7 @@ The Jetson Orin Nano can be accessed via network either via an ethernet cable or
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## <a name="tipps"></a> Tipps And Tricks
+## <a name="tipps"></a> Tips And Tricks
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
