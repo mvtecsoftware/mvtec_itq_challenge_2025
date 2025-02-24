@@ -138,15 +138,23 @@ The Jetson Orin Nano can be accessed via network either via an ethernet cable or
 * __BeachBotty/BeachBotty.ino__: 
   
   Contains the Arduino Program. Has to be opened with the Arduino IDE.
+
 * __halcon/HelloWorld.hdev__: 
 
   Prints 'Hello World' to the commandline. Test it with ```hrun HelloWorld.hdev```.
+
 * __halcon/RobotDemo.hdev__: 
 
   Acquires one image from the camera to test that it works. Spins the left and right robot chain drive forwards and backwards for one second to test if it works. Test it on the robots Jetson Orin with ```hrun RobotDemo.hdev```.
+
 * __halcon/RobotDemoMouseControl.hdev__: 
 
   Allows to drive the robot around with the mouse while looking at the cameras live images. Requires access to the Linux GUI. Test it on the robots Jetson Orin with ```hrun RobotDemoMouseControl.hdev```.
+
+* __halcon/robot_functions.hdpl__: 
+
+  A collection of HALCON procedures. They are used in RobotDemo.hdev and RobotDemoMouseControl.hdev.
+  They can be used in the main .hdev file with the line ```include .```.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -157,9 +165,9 @@ The Jetson Orin Nano can be accessed via network either via an ethernet cable or
    ```sh
    git clone https://github.com/mvtecsoftware/mvtec_itq_challenge_2025.git
    ```
-2. Copy the HALCON scripts to the Robot
-   ```js
-    TODO const API_KEY = 'ENTER YOUR API';
+2. Copy the HALCON scripts to the Robot (Not strictly needed, an old version should already be there)
+   ```sh
+   scp halcon/* makeathon@192.168.178.22:BeachBotty
    ```
 3. Connect to the Robot via ssh
    ```sh
@@ -177,6 +185,44 @@ The Jetson Orin Nano can be accessed via network either via an ethernet cable or
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+* __How to connect to the robot via SSH:__ 
+  
+   ```sh
+   ssh makeathon@192.168.178.22
+   ```
+   and enter the password 'makeathon'
+
+* __How to copy files to the robot:__ 
+
+   ```sh
+   scp <what> <user>@<target_machine>:<target_path>
+   ```
+   Example:
+   ```sh
+   scp halcon/* makeathon@192.168.178.22:BeachBotty
+   ```
+   and enter the password 'makeathon'
+
+* __How to connect to the Ubuntu GUI:__ 
+
+  Use the windows tool 'Remote Desktop Connection'
+
+  <a href="https://github.com/christian-hartinger/itq_2025_mvtec_challenge">
+    <img src="images/rdp.png" alt="Logo" width="400" height="260">
+  </a>
+
+  You have to enter username and password multiple times.
+  It is a good idea to choose a smaller resolution for the rdp connection to get a better update rate of the gui.
+
+  <a href="https://github.com/christian-hartinger/itq_2025_mvtec_challenge">
+    <img src="images/rdp2.png" alt="Logo" width="400" height="500">
+  </a>
+
+  
+
+* __How to use the HDevelop remote debugging functionality:__ 
+
+  bla
 
 
 <!-- LICENSE -->
