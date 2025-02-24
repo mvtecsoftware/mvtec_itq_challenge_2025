@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>open_file ('standard', 'output', FileHandle)</l>
+<l>fwrite_string (FileHandle, 'hello world\n')</l>
+<l>close_file (FileHandle)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

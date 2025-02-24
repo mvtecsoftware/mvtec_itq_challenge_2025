@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.100">
+<procedure name="main">
+<interface/>
+<body>
+<l>init()</l>
+<c></c>
+<l>robot_main()</l>
+<c></c>
+<l>cleanup()</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+<procedure name="init">
+<interface/>
+<body>
+<l>return ()</l>
+</body>
+<docu id="init">
+<parameters/>
+</docu>
+</procedure>
+<procedure name="cleanup">
+<interface/>
+<body>
+<l>return ()</l>
+</body>
+<docu id="cleanup">
+<parameters/>
+</docu>
+</procedure>
+<procedure name="robot_main">
+<interface/>
+<body>
+<l>import .</l>
+<c></c>
+<l>global tuple ThreadIDs</l>
+<c></c>
+<l>WindowWidth:=400</l>
+<l>WindowHeight:=400</l>
+<l>open_file ('standard', 'output', FileHandle)</l>
+<l>open_window (0, 1000, WindowWidth, WindowHeight, 0, 'visible', '', WindowHandle)</l>
+<l>set_part (WindowHandle, 0, 0, WindowHeight, WindowWidth)</l>
+<l>gen_image_const (Image, 'byte', 400, 400)</l>
+<l>for Index := 190 to 210 by 1</l>
+<l>    for Index1 := 190 to 210 by 1</l>
+<l>set_grayval (Image, Index,Index1, 255)        </l>
+<l>    endfor</l>
+<l>endfor</l>
+<l>disp_image (Image, WindowHandle)</l>
+<c></c>
+<l>ImageWindowSize:=800</l>
+<l>camera_initialize (CameraHandle)</l>
+<l>get_framegrabber_param (CameraHandle, 'Width', Width)</l>
+<l>get_framegrabber_param (CameraHandle, 'Height', Height)</l>
+<l>open_window (0, 0, ImageWindowSize, (1.0*Height/Width)*ImageWindowSize, 0, 'visible', '', WindowHandle1)</l>
+<l>set_part (WindowHandle1, 0, 0, Height,Width)</l>
+<l>robot_initialize (RobotHandle)</l>
+<c></c>
+<l>while (1)</l>
+<l>    Speed:=0.0</l>
+<l>    Direction:=0.0</l>
+<l>    Button:=0</l>
+<l>    try</l>
+<l>       get_mposition (WindowHandle, Row, Column, Button)        </l>
+<l>       Speed:=-1.0*(1.0*(Row-WindowHeight/2))/(WindowHeight/2)</l>
+<l>       Direction:=(1.0*(Column-WindowWidth/2))/(WindowWidth/2)</l>
+<l>    catch (Exception)</l>
+<l>       Speed:=0.0</l>
+<l>       Direction:=0.0</l>
+<l>    endtry</l>
+<l>    if(Button!=1)</l>
+<l>       Speed:=0.0</l>
+<l>       Direction:=0.0        </l>
+<l>    endif</l>
+<l>    grab_image_async (Image1, CameraHandle, -1)</l>
+<l>    disp_obj (Image1, WindowHandle1)</l>
+<l>    robot_ctrl_drive (RobotHandle,Speed,Direction)</l>
+<l>    *fwrite_string (FileHandle, 'Speed:'+Speed+'\n')</l>
+<l>    *fwrite_string (FileHandle, 'Direction:'+Direction+'\n')</l>
+<l>    wait_seconds (0.05)</l>
+<l>endwhile</l>
+<c></c>
+<l>RobotHandle:=HNULL</l>
+<l>close_file (FileHandle)</l>
+<c></c>
+</body>
+<docu id="robot_main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

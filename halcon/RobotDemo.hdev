@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.100">
+<procedure name="main">
+<interface/>
+<body>
+<l>init()</l>
+<c></c>
+<l>robot_main()</l>
+<c></c>
+<l>cleanup()</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+<procedure name="init">
+<interface/>
+<body>
+<l>return ()</l>
+</body>
+<docu id="init">
+<parameters/>
+</docu>
+</procedure>
+<procedure name="cleanup">
+<interface/>
+<body>
+<l>return ()</l>
+</body>
+<docu id="cleanup">
+<parameters/>
+</docu>
+</procedure>
+<procedure name="robot_main">
+<interface/>
+<body>
+<l>import .</l>
+<c>* Important for the heartbeat functionality</c>
+<l>global tuple ThreadIDs</l>
+<c></c>
+<l>open_file ('standard', 'output', FileHandle)</l>
+<c></c>
+<l>camera_initialize (CameraHandle)</l>
+<l>robot_initialize (RobotHandle)</l>
+<c></c>
+<l>fwrite_string (FileHandle, 'Testing camera\n')</l>
+<l>grab_image (Image, CameraHandle)</l>
+<l>fwrite_string (FileHandle, 'Grabed an Image\n')</l>
+<c></c>
+<l>fwrite_string (FileHandle, 'Testing robot motors - visual confirmation required\n')</l>
+<l>robot_ctrl_motor_left (RobotHandle, 0.7)</l>
+<l>wait_seconds (1)</l>
+<l>robot_ctrl_motor_left (RobotHandle, 0.0)</l>
+<l>wait_seconds (1)</l>
+<l>robot_ctrl_motor_left (RobotHandle, -0.7)</l>
+<l>wait_seconds (1)</l>
+<l>robot_ctrl_motor_left (RobotHandle, 0.0)</l>
+<l>wait_seconds (1)</l>
+<c></c>
+<l>robot_ctrl_motor_right (RobotHandle, 0.7)</l>
+<l>wait_seconds (1)</l>
+<l>robot_ctrl_motor_right (RobotHandle, 0.0)</l>
+<l>wait_seconds (1)</l>
+<l>robot_ctrl_motor_right (RobotHandle, -0.7)</l>
+<l>wait_seconds (1)</l>
+<l>robot_ctrl_motor_right (RobotHandle, 0.0)</l>
+<l>wait_seconds (1)</l>
+<c></c>
+<l>fwrite_string (FileHandle, 'End\n')</l>
+<l>RobotHandle:=HNULL</l>
+<l>close_file (FileHandle)</l>
+<c></c>
+</body>
+<docu id="robot_main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>
