@@ -251,7 +251,7 @@ Distributed under the MIT license. See `LICENSE.txt` for more information.
 
 Coco Rogers - coco.rogers@mvtec.com
 
-Phillip Junge - phillip.junge@mvtec.com
+Philipp Junge - philipp.junge@mvtec.com
 
 Christian Hartinger - christian.hartinger@mvtec.com
 
