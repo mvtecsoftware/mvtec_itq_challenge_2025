@@ -1,0 +1,4 @@
+loguru~=0.7.3
+dotenv~=0.9.9
+python-dotenv~=1.0.1
+mvtec-halcon
